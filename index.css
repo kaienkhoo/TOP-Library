@@ -1,0 +1,62 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+}
+
+.container {
+    width: 50%;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+table {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+}
+
+#form {
+    width: 300px;
+    padding: 1rem;
+    margin: 2rem auto;
+}
+
+#form h2 {
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+#book-form {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 10px;
+    align-items: center;
+}
+
+input#read {
+    justify-self: flex-start;
+}
+
+.form-buttons {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: 800;
+}
