@@ -86,8 +86,6 @@ function displayBook() {
         const action = document.createElement('td');
         const deleteButton = document.createElement('button');
         deleteButton.textContent = 'X';
-        deleteButton.dataset.id = book.uuid;
-
 
         deleteButton.addEventListener('click', () => {
             const indexToRemove = myLibrary.findIndex(item => item.uuid === book.uuid);
@@ -129,7 +127,8 @@ confirmButton.addEventListener('click', (e) => {
     const title = document.getElementById('title').value;
     const author = document.getElementById('author').value;
     const pages = document.getElementById('pages').value;
-    const read = document.getElementById('read').checked;
+    const readCheckbox = document.getElementById('read').checked;
+    const read = readCheckbox ? 'Yes' : 'No';
 
     if (title === '' || author === '' || pages === '') {
         alert('Please fill in all fields.');
