@@ -73,7 +73,12 @@ function displayBook() {
         const toggleBtn = document.createElement('button');
         toggleBtn.textContent = book.read;
         toggleBtn.classList.add('toggle-btn');
-        toggleBtn.dataset.id = book.uuid;
+
+        if (book.read === 'Yes') {
+            toggleBtn.classList.add('status-read');
+        } else {
+            toggleBtn.classList.add('status-unread');
+        }
 
         toggleBtn.addEventListener('click', () => {
             book.toggleRead();
@@ -86,6 +91,7 @@ function displayBook() {
         const action = document.createElement('td');
         const deleteButton = document.createElement('button');
         deleteButton.textContent = 'X';
+        deleteButton.dataset.id = book.uuid;
 
         deleteButton.addEventListener('click', () => {
             const indexToRemove = myLibrary.findIndex(item => item.uuid === book.uuid);
