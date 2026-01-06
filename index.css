@@ -17,15 +17,50 @@ body {
     padding: 2rem 0;
 }
 
+h1 {
+    margin-bottom: 2rem;
+}
+
 table {
     width: 100%;
     text-align: left;
     border-collapse: collapse;
 }
 
+thead tr th,
+td {
+    border-bottom: 1px solid black;
+    padding: 0.5rem 0;
+}
+
+.toggle-btn {
+    background-color: gray;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+.delete-button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#add-book-button {
+    margin-top: 1rem;
+}
+
 #form {
     width: 300px;
     padding: 1rem;
+    border-radius: 8px;
     margin: 2rem auto;
 }
 
@@ -37,8 +72,14 @@ table {
 #book-form {
     display: grid;
     grid-template-columns: 60px 1fr;
-    gap: 10px;
+    gap: 15px;
     align-items: center;
+}
+
+input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 input#read {
