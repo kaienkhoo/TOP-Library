@@ -86,6 +86,19 @@ function displayBook() {
         const action = document.createElement('td');
         const deleteButton = document.createElement('button');
         deleteButton.textContent = 'X';
+        deleteButton.dataset.id = book.uuid;
+
+
+        deleteButton.addEventListener('click', () => {
+            const indexToRemove = myLibrary.findIndex(item => item.uuid === book.uuid);
+
+            if (indexToRemove > -1) {
+                myLibrary.splice(indexToRemove, 1);
+            }
+
+            displayBook();
+        });
+
         action.appendChild(deleteButton);
         deleteButton.classList.add('delete-button');
         row.appendChild(action);
@@ -96,7 +109,6 @@ function displayBook() {
 }
 
 displayBook()
-
 
 
 
@@ -139,5 +151,3 @@ cancelButton.addEventListener('click', (e) => {
     dialog.close();
 }
 )
-
-console.log(myLibrary)
