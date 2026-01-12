@@ -1,20 +1,18 @@
 const myLibrary = []
 
-function Book(title, author, pages, read) {
-    this.uuid = crypto.randomUUID()
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.read = read
-}
+class Book {
+    constructor(title, author, pages, read) {
+        this.uuid = crypto.randomUUID()
+        this.title = title
+        this.author = author
+        this.pages = pages
+        this.read = read
+    }
 
-Book.prototype.toggleRead = function () {
-    if (this.read === 'Yes') {
-        this.read = 'No'
+    toggleRead() {
+        this.read = this.read === 'Yes' ? 'No' : 'Yes'
     }
-    else {
-        this.read = 'Yes'
-    }
+
 }
 
 function addBookToLibrary(title, author, pages, read) {
@@ -91,7 +89,10 @@ function displayBook() {
         const action = document.createElement('td');
         const deleteButton = document.createElement('button');
         deleteButton.textContent = 'X';
+        deleteButton.classList.add('delete-button');
+
         deleteButton.dataset.id = book.uuid;
+
 
         deleteButton.addEventListener('click', () => {
             const indexToRemove = myLibrary.findIndex(item => item.uuid === book.uuid);
@@ -104,7 +105,6 @@ function displayBook() {
         });
 
         action.appendChild(deleteButton);
-        deleteButton.classList.add('delete-button');
         row.appendChild(action);
 
 
